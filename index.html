@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#">
+                        <svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(0, 0)">
+                                <!-- 3D Cube -->
+                                <g transform="scale(0.8)">
+                                    <!-- Top face -->
+                                    <path d="M12 2L22 8L12 14L2 8L12 2Z" fill="#888888" />
+                                    <!-- Left face -->
+                                    <path d="M2 8L12 14L12 26L2 20L2 8Z" fill="#555555" />
+                                    <!-- Right face -->
+                                    <path d="M12 14L22 8L22 20L12 26L12 14Z" fill="#FFFFFF" />
+                                    <!-- Outlines -->
+                                    <path d="M12 2L22 8L12 14L2 8L12 2Z M2 8L12 14L12 26L2 20L2 8Z M12 14L22 8L22 20L12 26L12 14Z" stroke="#000000" stroke-width="0.5" fill="none" />
+                                </g>
+                            </g>
+                            <text x="32" y="20" font-family="Inter, sans-serif" font-weight="700" font-size="20" fill="white">CODELY</text>
+                        </svg>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#careers">Careers</a>
+                </div>
+                <div class="nav-buttons">
+                    <a href="#signin" class="btn-signin">Sign in</a>
+                    <a href="#download" class="btn-download">Download</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="animated-title" style="font-size:3.5rem; font-weight:800; letter-spacing:-0.5px; text-shadow:0 2px 20px rgba(255,255,255,0.1); display:flex; flex-wrap:wrap; justify-content:center;">The Ultimate AI Code Editor</h1>
+            <p class="subtitle">Built to maximize your efficiency, Codely makes coding effortless with AI.</p>
+            <div class="download-buttons">
+                <a href="#download-win" class="download-btn">Download for Windows</a>
+                <a href="#download-mac" class="download-btn">Download for Mac</a>
+                <a href="#download-linux" class="download-btn">Download for Linux</a>
+                <a href="#all-downloads" class="download-btn outline">All Downloads</a>
+            </div>
+
+            <div class="editor-preview">
+                <p class="editor-text">Codely lets you breeze through changes by predicting your next edit.</p>
+                <div class="code-editor-image">
+                    <div class="code-window" style="margin:0; height:100%; width:100%; box-shadow:none; border-radius:8px;">
+                        <div class="code-header" style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background:#1a1a1a;">
+                            <div class="dots" style="display:flex; gap:6px;">
+                                <span style="width:12px; height:12px; border-radius:50%; background-color:#FF5F56; display:block;"></span>
+                                <span style="width:12px; height:12px; border-radius:50%; background-color:#FFBD2E; display:block;"></span>
+                                <span style="width:12px; height:12px; border-radius:50%; background-color:#27C93F; display:block;"></span>
+                            </div>
+                            <div class="window-title" style="color:#8A8AAA; font-family:monospace; font-size:13px; margin-left: -45px;">main.js</div>
+                            <div style="width:50px;"></div>
+                        </div>
+                        <div class="code-content" style="height:calc(100% - 35px); background:#111; padding:15px; text-align:left; overflow:hidden;">
+                            <pre style="margin:0; overflow:visible;"><code style="font-family:monospace; line-height:1.5; font-size:14px;">
+<span style="color:#5e9cff;">function</span> <span style="color:#61afef;">processCode</span>(<span style="color:#e5c07b;">code</span>, <span style="color:#e5c07b;">options</span>) {
+    <span style="color:#7cc379;">// Helper function to read a length-prefixed string</span>
+    <span style="color:#4fc1ff;"><span style="display:inline-block; width:2px; background:#4fc1ff; height:18px; margin-right:5px;"></span><span style="color:#c678dd;">const</span> <span style="color:#e5c07b;">len</span> = <span style="color:#61afef;">readInt</span>(buf, <span style="color:#e5c07b;">offset</span>);</span>
+
+    <span style="color:#c678dd;">if</span> (len > <span style="color:#d19a66;">MAX_STRING_LENGTH</span>) {
+        <span style="color:#c678dd;">throw</span> <span style="color:#c678dd;">new</span> <span style="color:#e06c75;">ProtocolError</span>(<span style="color:#98c379;">"Maximum string length exceeded"</span>);
+    }
+
+    <span style="color:#5e9cff;">let</span> <span style="color:#d19a66;">sanitized_bytes</span> = <span style="color:#61afef;">encode</span>(bytes.filter(b => b != 0));
+    <span style="color:#5e9cff;">return</span> <span style="color:#e06c75;">String</span>.<span style="color:#61afef;">from_utf8</span>(sanitized_bytes);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 id="tab-title"><span class="visible-tab">Tab, tab, tab</span></h2>
+            <p class="section-subtitle">Codely lets you breeze through changes by predicting your next edit.</p>
+            <div class="feature-display">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="tab-name">chat-input.tsx</div>
+                    </div>
+                    <div class="code-content tab-code">
+                        <pre><code>
+<span class="line"><span class="type-def">type ChatInputProps = {</span></span>
+<span class="line">  isLoading: boolean;</span>
+<span class="line">  onSend: (message: string) => void;</span>
+<span class="line">};</span>
+<span class="line"></span>
+<span class="line"><span class="export">export function</span> <span class="function">ChatInput</span>({ isLoading, onSend }: ChatInputProps) {</span>
+<span class="line">  <span class="return">return</span> (</span>
+<span class="line">    <span class="element">&lt;form&gt;</span> <span class="tab-highlight">TAB to jump here</span></span>
+<span class="line">      <span class="element">&lt;input</span></span>
+<span class="line">        <span class="attr">type=</span><span class="string">"text"</span></span>
+<span class="line">        <span class="attr">placeholder=</span><span class="string">"Type a message..."</span></span>
+<span class="line">        <span class="attr">disabled=</span>{isLoading}</span>
+<span class="line">      <span class="element">/&gt;</span></span>
+<span class="line">      <span class="element">&lt;button</span></span>
+<span class="line">        <span class="attr">type=</span><span class="string">"submit"</span></span>
+<span class="line">        <span class="attr">disabled=</span>{isLoading}</span>
+<span class="line">      <span class="element">&gt;</span></span>
+<span class="line">        Send</span>
+<span class="line">      <span class="element">&lt;/button&gt;</span></span>
+<span class="line">    <span class="element">&lt;/form&gt;</span></span>
+<span class="line">  );</span>
+<span class="line">}</span>
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="text-center">The AI Features You Love.</h2>
+            <div class="features-grid">
+                <!-- Tab Feature -->
+                <div class="feature-card">
+                    <h3>Tab</h3>
+                    <p>Press 'Tab' to apply autocomplete.</p>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>
+<span class="line"><span class="comment"># Your code will appear here</span></span>
+<span class="line"><span class="function">def</span> your_function():</span>
+<span class="line">    # Codely will help you write better code</span>
+<span class="line">    pass</span>
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Edit Feature -->
+                <div class="feature-card">
+                    <h3>Quick Edit</h3>
+                    <p>Edit your selection inline.</p>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>
+<span class="line"><span class="comment">// Page Component</span></span>
+<span class="line"><span class="const">const</span> Page = () => {</span>
+<span class="line">    <span class="return">return</span> (</span>
+<span class="line">        &lt;div&gt;Page content&lt;/div&gt;</span>
+<span class="line">    )</span>
+<span class="line">}</span>
+                            </code></pre>
+                            <div class="edit-overlay">
+                                <div class="edit-box">
+                                    <p>Make this into a grid</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Feature -->
+                <div class="feature-card">
+                    <h3>Chat</h3>
+                    <p>Agent Mode, Gather Mode, and normal chat.</p>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="code-content">
+                            <div class="chat-interface">
+                                <div class="chat-messages">
+                                    <div class="chat-bubble ai">How can I help with your code today?</div>
+                                    <div class="chat-bubble user">Help me optimize this function</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="codebase" id="codebase">
+        <div class="container">
+            <h2>Knows your codebase</h2>
+            <p class="section-subtitle">Get answers from your codebase or refer to files or docs. Use the model's code in one click.</p>
+            <div class="codebase-display">
+                <!-- Codebase feature display -->
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props">
+        <div class="container">
+            <h2 id="build-faster-title">Build software faster</h2>
+            <p class="section-subtitle">Intelligent, fast, and familiar, Codely is the best way to code with AI.</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>Frontier Intelligence</h3>
+                    <p>Powered by a mix of purpose-built and frontier models, Codely is smart and fast.</p>
+                    <div class="card-image">
+                        <div class="relative aspect-[533/461] overflow-hidden rounded-b-lg md:rounded-b-2xl">
+                            <img alt="" loading="lazy" width="1065" height="921" decoding="async" data-nimg="1" class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten] hidden" src="https://assets.basehub.com/191e7e6d/a8f31b5eade8c4a868b8831955ea455c/frontier-black.webp" style="color: transparent;">
+                            <video class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten]" playsinline="" autoplay loop muted src="https://assets.basehub.com/191e7e6d/85d83ff8429b4ab1c6f99c364e55d474/frontier-black.mp4" poster="https://assets.basehub.com/191e7e6d/a8f31b5eade8c4a868b8831955ea455c/frontier-black.webp"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Feels Familiar</h3>
+                    <p>Import all your extensions, themes, and keybindings in one click.</p>
+                    <div class="card-image">
+                        <div class="relative aspect-[533/461] overflow-hidden rounded-b-lg md:rounded-b-2xl">
+                            <img alt="" loading="lazy" width="1065" height="921" decoding="async" data-nimg="1" class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten] hidden" src="https://assets.basehub.com/191e7e6d/9ae60e2d1008e3cc1c372e2cbf85c856/familiar-black.webp" style="color: transparent;">
+                            <video class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten]" playsinline="" autoplay loop muted src="https://assets.basehub.com/191e7e6d/02d37a133687665efcfc2c9e4e18c1f4/familiar-black.mp4" poster="https://assets.basehub.com/191e7e6d/9ae60e2d1008e3cc1c372e2cbf85c856/familiar-black.webp"></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Privacy Options</h3>
+                    <p>If you enable Privacy Mode, your code is never stored remotely. Codely is SOC 2 certified.</p>
+                    <div class="card-image">
+                        <div class="relative aspect-[533/461] overflow-hidden rounded-b-lg md:rounded-b-2xl">
+                            <img alt="" loading="lazy" width="1065" height="921" decoding="async" data-nimg="1" class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten] hidden" src="https://assets.basehub.com/191e7e6d/30c4a4dc68ffbaa1f12dbf3a7b348931/sec-black-(0-00-00-00).webp" style="color: transparent;">
+                            <video class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten]" playsinline="" autoplay loop muted src="https://assets.basehub.com/191e7e6d/2c85b56bbcedd81f38415294251715d7/sec-black.mp4" poster="https://assets.basehub.com/191e7e6d/30c4a4dc68ffbaa1f12dbf3a7b348931/sec-black-(0-00-00-00).webp"></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2>Share Your Experience</h2>
+            <p class="section-subtitle">Login to share your coding experience with Codely and help others learn from your journey</p>
+            
+            <div class="experience-container">
+                <div class="experience-login">
+                    <h3>Join the Community</h3>
+                    <p>Sign in to share your experiences with Codely</p>
+                    <a href="#login" class="btn-primary">Login</a>
+                    <a href="#signup" class="btn-secondary">Sign Up</a>
+                </div>
+                
+                <div class="experience-feed">
+                    <div class="experience-card">
+                        <div class="user-info">
+                            <div class="user-avatar"></div>
+                            <div class="user-name">John Developer</div>
+                        </div>
+                        <p class="experience-text">"Codely has transformed my workflow completely. The AI suggestions have reduced my coding time by 40%!"</p>
+                        <div class="experience-date">Posted 3 days ago</div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="user-info">
+                            <div class="user-avatar"></div>
+                            <div class="user-name">Sara Coder</div>
+                        </div>
+                        <p class="experience-text">"The code refactoring suggestions are incredibly helpful. I've learned so many new patterns just by using Codely daily."</p>
+                        <div class="experience-date">Posted 1 week ago</div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="user-info">
+                            <div class="user-avatar"></div>
+                            <div class="user-name">Mike Tech</div>
+                        </div>
+                        <p class="experience-text">"As a beginner programmer, Codely feels like having a senior developer by my side guiding me through complex problems."</p>
+                        <div class="experience-date">Posted 2 weeks ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="cta">
+        <div class="container">
+            <h2>Try Codely Now</h2>
+            <a href="#download" class="btn-primary">Download for free</a>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <img src="images/logo.svg" alt="Logo">
+                </div>
+                <div class="contact">
+                    <a href="mailto:hi@codely.com">hi@codely.com</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#download">Download</a>
+                    <a href="#experience">Experience</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#docs">Documentation</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#experience">Experiences</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#about">About</a>
+                    <a href="#careers">Careers</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#terms">Terms</a>
+                    <a href="#privacy">Privacy</a>
+                    <a href="#cookies">Cookies</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supported Platforms Section -->
+    <section class="supported-platforms">
+        <div class="container">
+            <h3>Supported Platforms</h3>
+            <div class="platform-logos">
+                <div class="platform">
+                    <svg class="platform-logo windows" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                    <span>Windows</span>
+                </div>
+                <div class="platform">
+                    <svg class="platform-logo apple" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47c-1.34.03-1.77-.79-3.29-.79c-1.53 0-2 .77-3.27.82c-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51c1.28-.02 2.5.87 3.29.87c.78 0 2.26-1.07 3.81-.91c.65.03 2.47.26 3.64 1.98c-.09.06-2.17 1.28-2.15 3.81c.03 3.02 2.65 4.03 2.68 4.04c-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5c.13 1.17-.34 2.35-1.04 3.19c-.69.85-1.83 1.51-2.95 1.42c-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span>macOS</span>
+                </div>
+                <div class="platform">
+                    <svg class="platform-logo linux" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g transform="translate(0, 1.5) scale(0.85)"><path d="M12 3c-1.23 0-2.42.38-3.4 1.04C7.42 4.76 6.5 5.67 6.09 7c-.43 1.34-.53 2.86-.93 4.15-.4 1.3-1.17 2.48-2.43 2.94-1.08.4-2.22.52-3.14 1.1-.93.58-1.49 1.7-1.2 2.76.24.87 1.06 1.56 1.99 1.84.93.28 1.96.24 2.9-.04.71-.22 1.37-.6 1.82-1.15.46-.56.67-1.28.81-1.95.13-.67.15-1.3.46-1.72.35-.48 1.01-.62 1.58-.49 1.36.32 2.42 1.35 3.7 1.5 1.27.14 2.75-.48 3.13-1.72.38-1.24-.21-2.6.16-3.85.38-1.26 1.76-2.25 1.74-3.67-.01-1.14-.93-2.07-1.75-2.8-1.26-1.1-2.94-1.9-4.93-1.9z" fill="#000000"/><path d="M12 4c-1.02 0-2.02.27-2.83.74C8.15 5.33 7.45 6.2 7.4 7c-.07.8-.17 1.46-.3 2.09-.13.63-.3 1.22-.53 1.84-.24.62-.58 1.25-1.1 1.74-.51.5-1.2.86-2.07 1.03-1.42.28-2.8.91-3.3 1.82-.5.91-.2 2.09 1.07 2.57.78.3 1.8.24 2.69-.08.89-.32 1.67-.84 2.19-1.5.51-.65.78-1.44.89-2.13.06-.38.09-.78.17-1.16.06-.29.15-.58.35-.84.2-.25.49-.47.94-.57.9-.21 1.85.07 2.64.49.79.42 1.45.99 2.23 1.16.78.18 1.69-.01 2.2-.68.52-.67.47-1.63.24-2.42-.23-.8-.63-1.45-.7-2.06-.07-.6.16-1.14.54-1.55.38-.4.87-.67 1.19-1.06.33-.38.49-.93.33-1.54-.17-.6-.68-1.15-1.25-1.58C15.34 4.47 13.73 4 12 4z" fill="#282828"/><ellipse cx="8.5" cy="8.2" rx="1.4" ry="1.8" fill="#ffffff"/><ellipse cx="15.5" cy="8.2" rx="1.4" ry="1.8" fill="#ffffff"/><ellipse cx="8.5" cy="8.5" rx=".45" ry=".7" fill="#000000"/><ellipse cx="15.5" cy="8.5" rx=".45" ry=".7" fill="#000000"/><path d="M12 14c-.7 0-1.35.15-1.86.43-.52.28-.89.7-.89 1.27 0 .55.37.98.89 1.25.52.28 1.16.42 1.86.42s1.34-.14 1.86-.42c.52-.27.89-.7.89-1.25 0-.57-.37-.99-.89-1.27-.52-.28-1.16-.43-1.86-.43z" fill="#f57f17"/><path d="M7 18.7c-.74 0-1.5.12-2.15.36C4.2 19.3 3.64 19.7 3.29 20.22c-.36.51-.44 1.13-.34 1.7.1.56.4 1.08.82 1.49.42.41.96.71 1.56.9.6.19 1.24.27 1.92.27.68 0 1.33-.09 1.94-.31.6-.22 1.16-.56 1.56-1.08.4-.51.64-1.2.64-2.08 0-.86-.26-1.47-.67-1.92-.4-.45-.93-.77-1.51-1-.59-.22-1.23-.38-1.85-.44-.31-.03-.62-.05-.92-.05z" fill="#f9a825"/><path d="M17 18.7c.74 0 1.5.12 2.15.36.65.24 1.21.64 1.56 1.16.36.51.44 1.13.34 1.7-.1.56-.4 1.08-.82 1.49-.42.41-.96.71-1.56.9-.6.19-1.24.27-1.92.27-.68 0-1.33-.09-1.94-.31-.6-.22-1.16-.56-1.56-1.08-.4-.51-.64-1.2-.64-2.08 0-.86.26-1.47.67-1.92.4-.45.93-.77 1.51-1 .59-.22 1.23-.38 1.85-.44.31-.03.62-.05.92-.05z" fill="#f9a825"/><path d="M12 11.75c-1.15-.35-2.22.41-2.5 1.25-.28.84-.01 1.75.63 2 .63.25 1.5-.25 2.12-.25.63 0 1.5.5 2.13.25.64-.25.9-1.16.62-2-.28-.84-1.35-1.6-2.5-1.25z" fill="#f9a825"/></g></svg>
+                    <span>Linux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="fluid-animation.js"></script>
+    <script src="fluid.js"></script>
+    <script src="text-animation.js"></script>
+</body>
+</html>

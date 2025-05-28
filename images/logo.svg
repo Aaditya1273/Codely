@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cube shape -->
+  <g transform="translate(0, 2)">
+    <path d="M15 0L30 8.66v17.32L15 34.64 0 25.98V8.66L15 0z" transform="scale(0.6)" fill="url(#gradient)" />
+    <!-- Inner details of the cube -->
+    <path d="M15 0v17.32l15 8.66m0-17.32L15 17.32 0 8.66" transform="scale(0.6)" stroke="white" stroke-width="1.5" stroke-opacity="0.6" fill="none" />
+  </g>
+  
+  <!-- Codely text -->
+  <text x="35" y="20" font-family="Inter, sans-serif" font-weight="700" font-size="20" fill="white">CODELY</text>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5546FF" />
+      <stop offset="100%" stop-color="#45E067" />
+    </linearGradient>
+  </defs>
+</svg>
