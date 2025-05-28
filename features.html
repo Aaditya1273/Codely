@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codely Features</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="terminal-styles.css">
+    <style>
+        :root {
+            --primary-color: #333333;
+            --gradient-start: #222222;
+            --gradient-end: #888888;
+            --dark-bg: #0A0A0A;
+            --card-bg: #151515;
+            --text-color: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000000;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: #000000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            width: 320px;
+            padding-bottom: 20px;
+            margin: 10px;
+        }
+
+        .feature-title {
+            padding: 15px 20px 5px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .feature-desc {
+            text-align: left;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0 20px 10px;
+        }
+
+        .code-window {
+            margin: 15px auto 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            width: 270px;
+            height: 270px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .code-header {
+            background-color: #2a2a2a;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            height: 30px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .dots span:nth-child(1) {
+            background-color: #FF5F56;
+        }
+
+        .dots span:nth-child(2) {
+            background-color: #FFBD2E;
+        }
+
+        .dots span:nth-child(3) {
+            background-color: #27C93F;
+        }
+
+        .code-content {
+            flex: 1;
+            padding: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #1a1a1a;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            color: #e6e6e6;
+            text-align: left;
+        }
+
+        pre {
+            margin: 0;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 2.2;
+            color: #e6e6e6;
+            text-align: left;
+            height: 100%;
+            overflow: hidden;
+            padding-left: 0;
+            letter-spacing: 0.5px;
+        }
+        
+        code {
+            display: block;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        .edit-overlay {
+            margin-top: auto;
+            background: #444;
+            border-radius: 4px;
+            padding: 10px 15px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .edit-overlay p {
+            margin: 0;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: #1a1a1a;
+        }
+
+        .code-editor {
+            flex: 1;
+            padding: 10px;
+            border-right: 1px solid #333;
+            overflow: hidden;
+        }
+
+        .chat-sidebar {
+            width: 35%;
+            padding: 10px;
+            font-size: 12px;
+            overflow: hidden;
+        }
+
+        .code-with-syntax {
+            font-family: 'Consolas', monospace;
+            line-height: 1.4;
+        }
+
+        .line-with-highlight {
+            background-color: rgba(97, 175, 239, 0.1);
+            padding: 2px 0;
+        }
+
+        .line {
+            padding: 1px 0;
+        }
+
+        .chat-message {
+            background: #1a1a1a;
+            border-radius: 4px;
+            padding: 7px;
+            margin-bottom: 7px;
+            font-size: 11px;
+        }
+
+        .chat-user {
+            margin-left: auto;
+            background: #333;
+        }
+
+        /* Syntax highlighting */
+        .comment { color: #7cc379; }
+        .keyword { color: #c678dd; }
+        .line-number { color: #666; margin-right: 4px; }
+        .type-def { color: #e5c07b; }
+        .string { color: #98c379; }
+        .function { color: #61afef; }
+        .variable { color: #d19a66; }
+        .return { color: #c678dd; }
+        .const { color: #c678dd; }
+        .tab-highlight { 
+            background: rgba(97, 175, 239, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The AI Features You Love.</h1>
+        
+        <div class="features-grid">
+            <!-- Tab Feature -->
+            <div class="feature-card">
+                <div class="feature-title">Tab</div>
+                <div class="feature-desc">Press 'Tab' to apply autocomplete.</div>
+                <div class="code-window" style="height: 270px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);">
+                    <div class="code-header">
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="code-content">
+                        <pre><code># Your code will appear here
+
+def your_function():
+
+# Codely will help you write better code
+
+    pass</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Edit Feature -->
+            <div class="feature-card" style="height: 440px;">
+                <div class="feature-title">Quick Edit</div>
+                <div class="feature-desc">Edit your selection inline.</div>
+                <div class="code-window" style="height: 310px;">
+                    <div class="code-header">
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="code-content">
+                        <pre><code>// Page Component
+
+const Page = () => {
+
+    return (
+
+        &lt;div&gt;Page content&lt;/div&gt;
+
+    )
+
+}</code></pre>
+                        <div class="edit-overlay">
+                            <p>Make this into a grid</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Feature -->
+            <div class="feature-card">
+                <div class="feature-title">Chat</div>
+                <div class="feature-desc">Agent Mode, Gather Mode, and normal chat.</div>
+                <div class="code-window" style="height: 270px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);">
+                    <div class="code-header">
+                        <div class="dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="code-content">
+                        <div class="chat-messages" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <div class="chat-message" style="background: #333; color: white; padding: 10px 15px; border-radius: 6px; margin-bottom: 15px; width: 80%;">
+                                How can I help with your code today?
+                            </div>
+                            <div class="chat-message" style="background: #444; color: white; padding: 10px 15px; border-radius: 6px; width: 80%;">
+                                Help me optimize this function
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

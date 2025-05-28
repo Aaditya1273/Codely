@@ -1,0 +1,142 @@
+/* Professional Terminal Styling */
+.code-window {
+    background-color: #1a1a1a;
+    border-radius: 6px;
+    margin: 10px auto;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Middle terminal should be taller */
+.feature-card:nth-child(2) .code-window {
+    height: 310px;
+}
+
+.code-header {
+    background-color: #2a2a2a;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+}
+
+.dots span:nth-child(1) {
+    background-color: #FF5F56;
+}
+
+.dots span:nth-child(2) {
+    background-color: #FFBD2E;
+}
+
+.dots span:nth-child(3) {
+    background-color: #27C93F;
+}
+
+.code-content {
+    flex: 1;
+    padding: 15px 0 15px 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    color: #e6e6e6;
+    text-align: left;
+}
+
+pre {
+    margin: 0;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 2.2;
+    color: #e6e6e6;
+    text-align: left;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 0;
+}
+
+code {
+    display: block;
+    padding-left: 0;
+    text-align: left;
+}
+
+.edit-overlay {
+    margin-top: auto;
+    background: #444;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.edit-overlay p {
+    margin: 0;
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* Properly size the feature cards */
+.feature-card {
+    background-color: #111111;
+    border-radius: 8px;
+    border: 1px solid #333;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 320px;
+    padding-bottom: 20px;
+}
+
+.feature-card:nth-child(2) {
+    height: 440px;
+}
+
+/* Chat message styling */
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.chat-message {
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+.chat-message:last-child {
+    background: #444;
+}
+
+/* Syntax highlighting */
+.comment { color: #7cc379; }
+.keyword { color: #c678dd; }
+.function { color: #61afef; }
+.line-number { color: #666; margin-right: 4px; }

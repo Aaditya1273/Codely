@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codely Features</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: #111111;
+            border-radius: 8px;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+            height: 400px;
+        }
+        
+        /* Make middle card taller to accommodate taller terminal */
+        .feature-card:nth-child(2) {
+            height: 440px;
+        }
+
+        .feature-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .terminal {
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            margin: 10px auto;
+            width: 270px;
+            height: 270px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Make middle terminal taller */
+        .feature-card:nth-child(2) .terminal {
+            height: 310px;
+        }
+
+        .terminal-header {
+            background-color: #2a2a2a;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background-color: #FF5F56;
+        }
+
+        .dot-yellow {
+            background-color: #FFBD2E;
+        }
+
+        .dot-green {
+            background-color: #27C93F;
+        }
+
+        .terminal-content {
+            flex: 1;
+            padding: 15px 0 15px 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            color: #e6e6e6;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .code-line {
+            white-space: pre;
+            line-height: 2.2;
+            padding: 4px 0;
+        }
+
+        .empty-line {
+            height: 28px;
+        }
+
+        .code-comment {
+            color: #7cc379;
+        }
+
+        .code-keyword {
+            color: #c678dd;
+        }
+
+        .code-function {
+            color: #61afef;
+        }
+
+        .code-arrow {
+            color: #e5c07b;
+        }
+
+        .code-string {
+            color: #98c379;
+        }
+
+        .code-tag {
+            color: #e06c75;
+        }
+
+        .edit-overlay {
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .edit-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .chat-message {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 5px auto;
+            width: 80%;
+            text-align: center;
+        }
+
+        .chat-message:last-child {
+            background-color: #444;
+        }
+
+        .terminal-inner {
+            background-color: #222;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 10px;
+            height: calc(100% - 20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The AI Features You Love.</h1>
+        
+        <div class="features-grid">
+            <!-- Tab Feature -->
+            <div class="feature-card">
+                <div class="feature-title">Tab</div>
+                <div class="feature-desc">Press 'Tab' to apply autocomplete.</div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="code-line"># <span class="code-comment">Your code will appear here</span></div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">def <span class="code-function">your_function</span>():</div>
+                        <div class="empty-line"></div>
+                        <div class="code-line"># <span class="code-comment">Codely will help you write better code</span></div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">    pass</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Edit Feature -->
+            <div class="feature-card">
+                <div class="feature-title">Quick Edit</div>
+                <div class="feature-desc">Edit your selection inline.</div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="code-line">// <span class="code-comment">Page Component</span></div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">const <span class="code-function">Page</span> = () <span class="code-arrow">=></span> {</div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">    return (</div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">        <span class="code-tag">&lt;div></span>Page content<span class="code-tag">&lt;/div></span></div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">    )</div>
+                        <div class="empty-line"></div>
+                        <div class="code-line">}</div>
+                        <div class="edit-overlay">
+                            <button class="edit-button">Make this into a grid</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Feature -->
+            <div class="feature-card">
+                <div class="feature-title">Chat</div>
+                <div class="feature-desc">Agent Mode, Gather Mode, and normal chat.</div>
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="dots">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-inner">
+                            <div class="chat-message">How can I help with your code today?</div>
+                            <div class="chat-message">Help me optimize this function</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
