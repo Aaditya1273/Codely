@@ -1,142 +1,295 @@
-/* Professional Terminal Styling */
-.code-window {
-    background-color: #1a1a1a;
-    border-radius: 6px;
-    margin: 10px auto;
+/* ==========================================================================
+   Professional Terminal & Code Window Styling
+   ========================================================================== */
+
+/* Variables for consistent theming */
+:root {
+    --terminal-bg-primary: #1a1a1a;
+    --terminal-bg-secondary: #2a2a2a;
+    --terminal-border: #333333;
+    --terminal-text: #e6e6e6;
+    --terminal-text-muted: #cccccc;
+    --terminal-text-dim: #666666;
+    --terminal-accent: #444444;
+    
+    /* Traffic light colors */
+    --dot-red: #ff5f56;
+    --dot-yellow: #ffbd2e;
+    --dot-green: #27c93f;
+    
+    /* Syntax highlighting */
+    --syntax-comment: #7cc379;
+    --syntax-keyword: #c678dd;
+    --syntax-function: #61afef;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 20px;
+    
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+  }
+  
+  /* ==========================================================================
+     Terminal Window Component
+     ========================================================================== */
+  
+  .terminal-window {
+    background-color: var(--terminal-bg-primary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--terminal-border);
+    margin: var(--spacing-md) auto;
     width: 270px;
     height: 270px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-}
-
-/* Middle terminal should be taller */
-.feature-card:nth-child(2) .code-window {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .terminal-window:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Special sizing for middle terminal */
+  .feature-card:nth-child(2) .terminal-window {
     height: 310px;
-}
-
-.code-header {
-    background-color: #2a2a2a;
-    padding: 8px 10px;
+  }
+  
+  /* ==========================================================================
+     Terminal Header
+     ========================================================================== */
+  
+  .terminal-header {
+    background-color: var(--terminal-bg-secondary);
+    padding: var(--spacing-sm) var(--spacing-md);
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     height: 30px;
-}
-
-.dots {
+    border-bottom: 1px solid var(--terminal-border);
+  }
+  
+  .terminal-controls {
     display: flex;
-    gap: 6px;
-}
-
-.dots span {
+    gap: var(--spacing-sm);
+  }
+  
+  .control-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     display: block;
-}
-
-.dots span:nth-child(1) {
-    background-color: #FF5F56;
-}
-
-.dots span:nth-child(2) {
-    background-color: #FFBD2E;
-}
-
-.dots span:nth-child(3) {
-    background-color: #27C93F;
-}
-
-.code-content {
+    transition: opacity 0.2s ease;
+  }
+  
+  .control-dot:hover {
+    opacity: 0.8;
+  }
+  
+  .control-dot--close {
+    background-color: var(--dot-red);
+  }
+  
+  .control-dot--minimize {
+    background-color: var(--dot-yellow);
+  }
+  
+  .control-dot--maximize {
+    background-color: var(--dot-green);
+  }
+  
+  /* ==========================================================================
+     Terminal Content
+     ========================================================================== */
+  
+  .terminal-content {
     flex: 1;
-    padding: 15px 0 15px 15px;
+    padding: var(--spacing-lg) 0 var(--spacing-lg) var(--spacing-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #1a1a1a;
-    font-family: 'Consolas', monospace;
+    background-color: var(--terminal-bg-primary);
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
     font-size: 14px;
-    color: #e6e6e6;
-    text-align: left;
-}
-
-pre {
+    line-height: 1.6;
+    color: var(--terminal-text);
+  }
+  
+  .terminal-code {
     margin: 0;
-    font-family: 'Consolas', monospace;
-    font-size: 14px;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
     line-height: 2.2;
-    color: #e6e6e6;
-    text-align: left;
+    color: inherit;
     height: 100%;
     overflow: hidden;
-    padding-left: 0;
-}
-
-code {
+    white-space: pre;
+  }
+  
+  .code-block {
     display: block;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
     text-align: left;
-}
-
-.edit-overlay {
+  }
+  
+  /* ==========================================================================
+     Interactive Elements
+     ========================================================================== */
+  
+  .terminal-overlay {
     margin-top: auto;
-    background: #444;
-    border-radius: 4px;
-    padding: 10px 15px;
+    background-color: var(--terminal-accent);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-lg);
     font-size: 14px;
-}
-
-.edit-overlay p {
+    border: 1px solid var(--terminal-border);
+  }
+  
+  .terminal-overlay__text {
     margin: 0;
-    color: #cccccc;
+    color: var(--terminal-text-muted);
     font-size: 14px;
-}
-
-/* Properly size the feature cards */
-.feature-card {
+    font-family: inherit;
+  }
+  
+  /* ==========================================================================
+     Feature Cards Container
+     ========================================================================== */
+  
+  .feature-card {
     background-color: #111111;
-    border-radius: 8px;
-    border: 1px solid #333;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--terminal-border);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 400px;
     width: 320px;
-    padding-bottom: 20px;
-}
-
-.feature-card:nth-child(2) {
+    padding-bottom: var(--spacing-xl);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .feature-card:nth-child(2) {
     height: 440px;
-}
-
-/* Chat message styling */
-.chat-messages {
+  }
+  
+  /* ==========================================================================
+     Chat Interface Components
+     ========================================================================== */
+  
+  .chat-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-}
-
-.chat-message {
-    background: #333;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
+    padding: var(--spacing-lg);
+  }
+  
+  .chat-message {
+    background-color: var(--terminal-bg-secondary);
+    color: var(--terminal-text);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
     width: 80%;
-}
-
-.chat-message:last-child {
-    background: #444;
-}
-
-/* Syntax highlighting */
-.comment { color: #7cc379; }
-.keyword { color: #c678dd; }
-.function { color: #61afef; }
-.line-number { color: #666; margin-right: 4px; }
+    border: 1px solid var(--terminal-border);
+    transition: background-color 0.2s ease;
+  }
+  
+  .chat-message:last-child {
+    background-color: var(--terminal-accent);
+  }
+  
+  .chat-message:hover {
+    background-color: var(--terminal-accent);
+  }
+  
+  /* ==========================================================================
+     Syntax Highlighting
+     ========================================================================== */
+  
+  .syntax-comment {
+    color: var(--syntax-comment);
+  }
+  
+  .syntax-keyword {
+    color: var(--syntax-keyword);
+    font-weight: 600;
+  }
+  
+  .syntax-function {
+    color: var(--syntax-function);
+  }
+  
+  .line-number {
+    color: var(--terminal-text-dim);
+    margin-right: var(--spacing-xs);
+    user-select: none;
+    font-weight: 400;
+  }
+  
+  /* ==========================================================================
+     Responsive Design
+     ========================================================================== */
+  
+  @media (max-width: 768px) {
+    .terminal-window {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .feature-card {
+      width: 100%;
+      max-width: 340px;
+    }
+    
+    .terminal-content {
+      font-size: 12px;
+    }
+  }
+  
+  /* ==========================================================================
+     Accessibility & Performance
+     ========================================================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-window,
+    .feature-card,
+    .control-dot,
+    .chat-message {
+      transition: none;
+    }
+  }
+  
+  /* Focus states for keyboard navigation */
+  .terminal-window:focus-within {
+    outline: 2px solid var(--dot-green);
+    outline-offset: 2px;
+  }
+  
+  /* Print styles */
+  @media print {
+    .terminal-window {
+      box-shadow: none;
+      border: 2px solid #000;
+    }
+  }
