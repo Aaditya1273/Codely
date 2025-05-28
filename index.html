@@ -136,52 +136,36 @@
 
     <section class="features" id="features">
         <div class="container">
-            <h2 id="tab-title"><span class="visible-tab">Tab, tab, tab</span></h2>
-            <p class="section-subtitle">Codely lets you breeze through changes by predicting your next edit.</p>
-            <div class="feature-display">
-                <div class="code-window">
-                    <div class="code-header">
-                        <div class="dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="tab-name">chat-input.tsx</div>
-                    </div>
-                    <div class="code-content tab-code">
-                        <pre><code>
-<span class="line"><span class="type-def">type ChatInputProps = {</span></span>
-<span class="line">  isLoading: boolean;</span>
-<span class="line">  onSend: (message: string) => void;</span>
-<span class="line">};</span>
-<span class="line"></span>
-<span class="line"><span class="export">export function</span> <span class="function">ChatInput</span>({ isLoading, onSend }: ChatInputProps) {</span>
-<span class="line">  <span class="return">return</span> (</span>
-<span class="line">    <span class="element">&lt;form&gt;</span> <span class="tab-highlight">TAB to jump here</span></span>
-<span class="line">      <span class="element">&lt;input</span></span>
-<span class="line">        <span class="attr">type=</span><span class="string">"text"</span></span>
-<span class="line">        <span class="attr">placeholder=</span><span class="string">"Type a message..."</span></span>
-<span class="line">        <span class="attr">disabled=</span>{isLoading}</span>
-<span class="line">      <span class="element">/&gt;</span></span>
-<span class="line">      <span class="element">&lt;button</span></span>
-<span class="line">        <span class="attr">type=</span><span class="string">"submit"</span></span>
-<span class="line">        <span class="attr">disabled=</span>{isLoading}</span>
-<span class="line">      <span class="element">&gt;</span></span>
-<span class="line">        Send</span>
-<span class="line">      <span class="element">&lt;/button&gt;</span></span>
-<span class="line">    <span class="element">&lt;/form&gt;</span></span>
-<span class="line">  );</span>
-<span class="line">}</span>
-                        </code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="container">
             <h2 class="text-center">The AI Features You Love.</h2>
+            <style>
+                .features-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 30px;
+                    margin-top: 40px;
+                }
+                .feature-card {
+                    background: rgba(30, 30, 30, 0.6);
+                    border-radius: 12px;
+                    padding: 25px;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                .feature-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                }
+                .feature-card h3 {
+                    font-size: 20px;
+                    margin-bottom: 12px;
+                    color: #fff;
+                }
+                .feature-card p {
+                    color: rgba(255, 255, 255, 0.7);
+                    margin-bottom: 20px;
+                    line-height: 1.5;
+                }
+            </style>
             <div class="features-grid">
                 <!-- Tab Feature -->
                 <div class="feature-card">
@@ -258,53 +242,147 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Instant Apply -->
+                <div class="feature-card">
+                    <h3>Instant Apply</h3>
+                    <p>Apply the code suggestions from chat back into your codebase by clicking the play button on top of any chat codeblock.</p>
+                </div>
+
+                <!-- Codebase Answers -->
+                <div class="feature-card">
+                    <h3>Codebase Answers</h3>
+                    <p>Use @Codebase or Ctrl Enter to ask questions about your codebase. Cursor will search your codebase to find relevant code to your query.</p>
+                </div>
+
+                <!-- Reference your Code -->
+                <div class="feature-card">
+                    <h3>Reference your Code</h3>
+                    <p>Reference code with @ symbols to be used as context for the AI. Just type @ to see a list of all the files and code symbols in your folder.</p>
+                </div>
+
+                <!-- Use Images -->
+                <div class="feature-card">
+                    <h3>Use Images</h3>
+                    <p>Hit the image button under chat or drag an image into the input box to include visual context into chat.</p>
+                </div>
+
+                <!-- Ask the Web -->
+                <div class="feature-card">
+                    <h3>Ask the Web</h3>
+                    <p>Get up-to-date information from the internet with @Web. Cursor will search the web for you and use the latest information to answer your question.</p>
+                </div>
+
+                <!-- Use Documentation -->
+                <div class="feature-card">
+                    <h3>Use Documentation</h3>
+                    <p>Reference popular libraries using @LibraryName, or add your own using @Docs > Add new doc.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="codebase" id="codebase">
-        <div class="container">
-            <h2>Knows your codebase</h2>
-            <p class="section-subtitle">Get answers from your codebase or refer to files or docs. Use the model's code in one click.</p>
-            <div class="codebase-display">
-                <!-- Codebase feature display -->
-            </div>
-        </div>
-    </section>
 
-    <section class="value-props">
+    <section class="value-props" style="background: #000000; padding: 50px 0; margin-top: 50px;">
         <div class="container">
-            <h2 id="build-faster-title">Build software faster</h2>
-            <p class="section-subtitle">Intelligent, fast, and familiar, Codely is the best way to code with AI.</p>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div style="display: inline-block; width: 400px; height: 50px; background-color: #000000; border: 2px solid #333333; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); line-height: 50px; color: white; font-size: 28px; font-weight: bold;">Build software faster</div>
+            </div>
+            <div class="see-more-btn" style="text-align: right; margin-bottom: 20px;">
+                <a href="#features" class="btn-secondary" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 20px; color: white; text-decoration: none; font-size: 14px;">See more features</a>
+            </div>
+            <style>
+                .cards {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 20px;
+                    margin-top: 20px;
+                }
+                .card {
+                    background: rgba(0, 0, 0, 0.7);
+                    border-radius: 12px;
+                    padding: 25px;
+                    transition: transform 0.3s ease;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    overflow: hidden;
+                    height: 350px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .card:hover {
+                    transform: translateY(-5px);
+                }
+                .card h3 {
+                    font-size: 22px;
+                    margin-bottom: 12px;
+                    color: #fff;
+                }
+                .card p {
+                    color: rgba(255, 255, 255, 0.7);
+                    margin-bottom: 25px;
+                    line-height: 1.5;
+                }
+                .card-image {
+                    margin-top: auto;
+                    height: 180px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .card-image img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                }
+            </style>
             <div class="cards">
                 <div class="card">
                     <h3>Frontier Intelligence</h3>
                     <p>Powered by a mix of purpose-built and frontier models, Codely is smart and fast.</p>
                     <div class="card-image">
-                        <div class="relative aspect-[533/461] overflow-hidden rounded-b-lg md:rounded-b-2xl">
-                            <img alt="" loading="lazy" width="1065" height="921" decoding="async" data-nimg="1" class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten] hidden" src="https://assets.basehub.com/191e7e6d/a8f31b5eade8c4a868b8831955ea455c/frontier-black.webp" style="color: transparent;">
-                            <video class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten]" playsinline="" autoplay loop muted src="https://assets.basehub.com/191e7e6d/85d83ff8429b4ab1c6f99c364e55d474/frontier-black.mp4" poster="https://assets.basehub.com/191e7e6d/a8f31b5eade8c4a868b8831955ea455c/frontier-black.webp"></video>
-                        </div>
+                        <svg width="150" height="150" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 15px rgba(255, 255, 0, 0.5));">
+                            <path d="M60 10L110 80L60 110L10 80L60 10Z" fill="url(#prism-gradient)" />
+                            <defs>
+                                <linearGradient id="prism-gradient" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#00ffff" />
+                                    <stop offset="33%" stop-color="#ffff00" />
+                                    <stop offset="67%" stop-color="#ff00ff" />
+                                    <stop offset="100%" stop-color="#00ffff" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </div>
                 </div>
                 <div class="card">
                     <h3>Feels Familiar</h3>
                     <p>Import all your extensions, themes, and keybindings in one click.</p>
                     <div class="card-image">
-                        <div class="relative aspect-[533/461] overflow-hidden rounded-b-lg md:rounded-b-2xl">
-                            <img alt="" loading="lazy" width="1065" height="921" decoding="async" data-nimg="1" class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten] hidden" src="https://assets.basehub.com/191e7e6d/9ae60e2d1008e3cc1c372e2cbf85c856/familiar-black.webp" style="color: transparent;">
-                            <video class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten]" playsinline="" autoplay loop muted src="https://assets.basehub.com/191e7e6d/02d37a133687665efcfc2c9e4e18c1f4/familiar-black.mp4" poster="https://assets.basehub.com/191e7e6d/9ae60e2d1008e3cc1c372e2cbf85c856/familiar-black.webp"></video>
-                        </div>
+                        <svg width="150" height="150" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.5));">
+                            <rect x="10" y="10" width="45" height="45" fill="#00BFFF" />
+                            <rect x="65" y="10" width="45" height="45" fill="#FF00FF" />
+                            <rect x="10" y="65" width="45" height="45" fill="#FFCC00" />
+                            <rect x="65" y="65" width="45" height="45" fill="#00FF00" />
+                        </svg>
                     </div>
                 </div>
                 <div class="card">
                     <h3>Privacy Options</h3>
                     <p>If you enable Privacy Mode, your code is never stored remotely. Codely is SOC 2 certified.</p>
                     <div class="card-image">
-                        <div class="relative aspect-[533/461] overflow-hidden rounded-b-lg md:rounded-b-2xl">
-                            <img alt="" loading="lazy" width="1065" height="921" decoding="async" data-nimg="1" class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten] hidden" src="https://assets.basehub.com/191e7e6d/30c4a4dc68ffbaa1f12dbf3a7b348931/sec-black-(0-00-00-00).webp" style="color: transparent;">
-                            <video class="pointer-events-none absolute inset-0 h-auto w-full select-none dark:[mix-blend-mode:lighten]" playsinline="" autoplay loop muted src="https://assets.basehub.com/191e7e6d/2c85b56bbcedd81f38415294251715d7/sec-black.mp4" poster="https://assets.basehub.com/191e7e6d/30c4a4dc68ffbaa1f12dbf3a7b348931/sec-black-(0-00-00-00).webp"></video>
-                        </div>
+                        <svg width="150" height="150" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.5));">
+                            <circle cx="60" cy="60" r="50" fill="#111111" stroke="#555" stroke-width="2"/>
+                            <circle cx="60" cy="60" r="40" fill="url(#circle-gradient)" />
+                            <text x="60" y="65" text-anchor="middle" fill="white" style="font-family: Arial; font-size: 16px; font-weight: bold;">SOC2</text>
+                            <defs>
+                                <radialGradient id="circle-gradient" cx="60" cy="60" r="40" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#ff00ff" />
+                                    <stop offset="25%" stop-color="#ff00ff" />
+                                    <stop offset="50%" stop-color="#ffff00" />
+                                    <stop offset="75%" stop-color="#00ffff" />
+                                    <stop offset="100%" stop-color="#ff00ff" />
+                                </radialGradient>
+                            </defs>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -320,14 +398,39 @@
                 <div class="experience-login">
                     <h3>Join the Community</h3>
                     <p>Sign in to share your experiences with Codely</p>
-                    <a href="#login" class="btn-primary">Login</a>
-                    <a href="#signup" class="btn-secondary">Sign Up</a>
+                    <a href="#login" class="btn-primary shine-effect">Login</a>
+                    <a href="#signup" class="btn-secondary shine-effect">Sign Up</a>
+                    <style>
+                        .shine-effect {
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        .shine-effect:after {
+                            content: '';
+                            position: absolute;
+                            top: -50%;
+                            left: -100%;
+                            width: 70%;
+                            height: 200%;
+                            opacity: 0.2;
+                            transform: rotate(30deg);
+                            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+                            animation: shine 3s infinite;
+                        }
+                        @keyframes shine {
+                            0% { left: -100%; opacity: 0.6; }
+                            20% { left: 100%; opacity: 0.6; }
+                            100% { left: 100%; opacity: 0; }
+                        }
+                    </style>
                 </div>
                 
                 <div class="experience-feed">
                     <div class="experience-card">
                         <div class="user-info">
-                            <div class="user-avatar"></div>
+                            <div class="user-avatar">
+                                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=John" alt="John Developer" width="40" height="40" style="border-radius: 50%;">
+                            </div>
                             <div class="user-name">John Developer</div>
                         </div>
                         <p class="experience-text">"Codely has transformed my workflow completely. The AI suggestions have reduced my coding time by 40%!"</p>
@@ -336,7 +439,9 @@
                     
                     <div class="experience-card">
                         <div class="user-info">
-                            <div class="user-avatar"></div>
+                            <div class="user-avatar">
+                                <img src="https://api.dicebear.com/7.x/lorelei/svg?seed=Sara" alt="Sara Coder" width="40" height="40" style="border-radius: 50%;">
+                            </div>
                             <div class="user-name">Sara Coder</div>
                         </div>
                         <p class="experience-text">"The code refactoring suggestions are incredibly helpful. I've learned so many new patterns just by using Codely daily."</p>
@@ -345,7 +450,9 @@
                     
                     <div class="experience-card">
                         <div class="user-info">
-                            <div class="user-avatar"></div>
+                            <div class="user-avatar">
+                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Mike" alt="Mike Tech" width="40" height="40" style="border-radius: 50%;">
+                            </div>
                             <div class="user-name">Mike Tech</div>
                         </div>
                         <p class="experience-text">"As a beginner programmer, Codely feels like having a senior developer by my side guiding me through complex problems."</p>
@@ -361,8 +468,45 @@
     <section class="cta">
         <div class="container">
             <h2>Try Codely Now</h2>
+            <div class="cta-logo">
+                <!-- Larger 3D Cube Logo -->
+                <svg width="100" height="120" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 15px auto 10px;">
+                    <!-- 3D Cube -->
+                    <!-- Top face -->
+                    <path d="M12 2L22 8L12 14L2 8L12 2Z" fill="#888888" />
+                    <!-- Left face -->
+                    <path d="M2 8L12 14L12 26L2 20L2 8Z" fill="#555555" />
+                    <!-- Right face -->
+                    <path d="M12 14L22 8L22 20L12 26L12 14Z" fill="#FFFFFF" />
+                    <!-- Outlines -->
+                    <path d="M12 2L22 8L12 14L2 8L12 2Z M2 8L12 14L12 26L2 20L2 8Z M12 14L22 8L22 20L12 26L12 14Z" stroke="#000000" stroke-width="0.5" fill="none" />
+                </svg>
+                <!-- Separate Name Below Logo -->
+                <div class="logo-name">CODELY</div>
+            </div>
             <a href="#download" class="btn-primary">Download for free</a>
         </div>
+        <style>
+            .cta-logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 25px;
+            }
+            .logo-name {
+                font-family: 'Inter', sans-serif;
+                font-weight: 700;
+                font-size: 20px;
+                color: white;
+                margin-top: 5px;
+                letter-spacing: 1px;
+            }
+            .cta {
+                text-align: center;
+                padding: 60px 0;
+            }
+        </style>
     </section>
 
 
@@ -371,7 +515,18 @@
         <div class="container">
             <div class="footer-top">
                 <div class="logo">
-                    <img src="images/logo.svg" alt="Logo">
+                    <!-- 3D Cube Logo -->
+                    <svg width="40" height="40" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                        <!-- Top face -->
+                        <path d="M12 2L22 8L12 14L2 8L12 2Z" fill="#888888" />
+                        <!-- Left face -->
+                        <path d="M2 8L12 14L12 26L2 20L2 8Z" fill="#555555" />
+                        <!-- Right face -->
+                        <path d="M12 14L22 8L22 20L12 26L12 14Z" fill="#FFFFFF" />
+                        <!-- Outlines -->
+                        <path d="M12 2L22 8L12 14L2 8L12 2Z M2 8L12 14L12 26L2 20L2 8Z M12 14L22 8L22 20L12 26L12 14Z" stroke="#000000" stroke-width="0.5" fill="none" />
+                    </svg>
+                    <span style="font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: white; vertical-align: middle;">CODELY</span>
                 </div>
                 <div class="contact">
                     <a href="mailto:hi@codely.com">hi@codely.com</a>
@@ -427,9 +582,8 @@
                     <span>macOS</span>
                 </div>
                 <div class="platform">
-                    <svg class="platform-logo linux" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                        <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489.117.779.567 1.563 1.182 2.145.267.25.5.5.58 1.05.016.118.028.299.033.434.067 1.28.596 2.53 1.423 3.43.293.32.609.6.96.86.398.3.877.51 1.407.6.51.086 1.03.105 1.56.105.176 0 .35-.004.524-.013 1.395-.042 2.706-.43 3.991-1.207a5.72 5.72 0 0 0 1.936-1.936c.484-.766.829-1.676 1.222-2.582.16-.36.319-.72.359-1.03.032-.28.044-.56.036-.84a2.5 2.5 0 0 0-.748-1.755 3.3 3.3 0 0 0-.36-.32 3.19 3.19 0 0 0-.617-.49 5.03 5.03 0 0 0-.684-.36c-.355-.169-.743-.337-.937-.695a.21.21 0 0 1-.023-.126c.14-.676 1.306-.947 1.838-1.249.97-.515 1.551-1.05 2.1-1.989.323-.555.5-1.1.63-1.665.13-.563.236-1.015.35-1.296.115-.283.363-.552.632-.783l.3-.254c.371-.307.461-.567.463-.83 0-.418-.334-.757-.56-.945a8.46 8.46 0 0 0-.574-.38c-1.634-1-3.432-1.023-4.987-1.16-.591-.053-1.162-.129-1.624-.28-.299-.096-.551-.216-.742-.398-.209-.2-.343-.4-.517-.733a4.81 4.81 0 0 0-.424-.736A2.96 2.96 0 0 0 12.504 0zm.157 2.129c.327 0 .582.215.708.47.5.1.1.2.123.297l.076.575.197-.416a.93.93 0 0 1 .205-.277c.128-.13.349-.243.6-.243.128 0 .328.044.545.148.11.055.298.158.473.308.348.296.388.576.388.67 0 .047-.01.139-.08.238l-.41.302c-.336.278-.656.623-.82.988-.165.363-.31.633-.436 1.033-.366 1.074-.526 1.59-.905 2.243-.483.836-1.182 1.486-2.28 2.073-.65.35-1.411.756-1.897 1.213a2.15 2.15 0 0 0-.627 1.692 1.36 1.36 0 0 0 .653 1.134c.32.192.744.376 1.136.56.538.25 1.075.532 1.635.902.335.22.696.47 1.048.79.145.129.33.31.518.503.153.156.372.416.486.736.11.31.128.597.094.84-.118.79-.465 1.455-.903 2.199-.506.852-.968 1.815-1.529 2.699-.148.232-.258.414-.42.663-.152.23-.332.517-.513.713-.373.404-.8.69-1.25.945a6.74 6.74 0 0 1-3.284 1.022c-.156.008-.312.016-.48.016-.802 0-1.571-.094-2.264-.267a4.39 4.39 0 0 1-1.129-.466 5.39 5.39 0 0 1-.62-.421 5.89 5.89 0 0 1-.843-.847c-.421-.532-.757-1.14-.985-1.922a8.21 8.21 0 0 1-.267-1.109c-.06-.383-.088-.679-.08-.9.01-.22.066-.487.19-.733.077-.167.21-.333.37-.544.334-.377.683-.673.966-.85.303-.176.607-.249.856-.28l.497-.021c.352-.014.714-.114 1.05-.303a2.83 2.83 0 0 0 .625-.416 3.19 3.19 0 0 0 .654-.737c.566-.882.77-1.94.883-3.136.097-.95.163-1.763.236-2.334.064-.505.148-.945.277-1.29.128-.344.29-.611.517-.838.227-.227.38-.345.525-.438.215-.14.401-.222.552-.294.303-.14.584-.212.878-.212z" fill="#333" stroke="none" fill-rule="evenodd"/>
-                    </svg>
+                    <img class="platform-logo linux" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux" width="32" height="32">
+
                     <span>Linux</span>
                 </div>
             </div>
