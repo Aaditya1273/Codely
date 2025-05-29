@@ -302,15 +302,41 @@
                     background: rgba(0, 0, 0, 0.7);
                     border-radius: 12px;
                     padding: 25px;
-                    transition: transform 0.3s ease;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow: hidden;
                     height: 350px;
                     display: flex;
                     flex-direction: column;
+                    position: relative;
+                    color: white;
+                    text-align: center;
                 }
                 .card:hover {
                     transform: translateY(-5px);
+                }
+                .card::before {
+                    content: '';
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                    right: -2px;
+                    bottom: -2px;
+                    background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #FFD700);
+                    background-size: 400% 400%;
+                    z-index: -1;
+                    border-radius: 12px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .card:hover::before {
+                    opacity: 1;
+                    animation: goldShine 3s ease-in-out infinite;
+                }
+                @keyframes goldShine {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
                 }
                 .card h3 {
                     font-size: 22px;
@@ -340,25 +366,42 @@
                     <h3>Frontier Intelligence</h3>
                     <p>Powered by a mix of purpose-built and frontier models, Codely is smart and fast.</p>
                     <div class="card-image">
-                        <div class="animated-icon" style="position: relative; width: 150px; height: 150px; perspective: 800px;">
-                            <div class="rotating-prism" style="width: 100%; height: 100%; transform-style: preserve-3d; animation: rotatePrism 8s infinite linear;">
-                                <svg width="150" height="150" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.6));">
-                                    <path d="M60 10L110 80L60 110L10 80L60 10Z" fill="url(#prism-gradient)" />
-                                    <defs>
-                                        <linearGradient id="prism-gradient" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0%" stop-color="#00ffff" />
-                                            <stop offset="33%" stop-color="#ffff00" />
-                                            <stop offset="67%" stop-color="#ff00ff" />
-                                            <stop offset="100%" stop-color="#00ffff" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
+                        <div class="animated-icon" style="position: relative; width: 150px; height: 150px; perspective: 1000px;">
+                            <div class="star-container" style="width: 100%; height: 100%; transform-style: preserve-3d; animation: rotateStarTetrahedron 6s infinite linear;">
+                                <!-- Star tetrahedron (Merkaba) shape with black borders -->
+                                <!-- Upward-pointing tetrahedron (yellow) -->
+                                <div style="position: absolute; width: 0; height: 0; left: 75px; top: 55px; transform: translateZ(0); filter: drop-shadow(0 0 15px rgba(255, 255, 0, 0.6));">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" style="position: absolute; top: -50px; left: -50px;">
+                                        <polygon points="50,0 100,87 0,87" fill="#FFCC00" stroke="#000000" stroke-width="3" />
+                                    </svg>
+                                </div>
+                                
+                                <!-- Downward-pointing tetrahedron (cyan) -->
+                                <div style="position: absolute; width: 0; height: 0; left: 75px; top: 55px; transform: translateZ(0) rotateZ(60deg); filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.6));">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" style="position: absolute; top: -50px; left: -50px;">
+                                        <polygon points="50,87 0,0 100,0" fill="#00CCFF" stroke="#000000" stroke-width="3" />
+                                    </svg>
+                                </div>
+                                
+                                <!-- Horizontal tetrahedron (magenta) -->
+                                <div style="position: absolute; width: 0; height: 0; left: 75px; top: 55px; transform: translateZ(0) rotateZ(120deg); filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.6));">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" style="position: absolute; top: -50px; left: -50px;">
+                                        <polygon points="50,0 100,87 0,87" fill="#FF33CC" stroke="#000000" stroke-width="3" />
+                                    </svg>
+                                </div>
+                                
+                                <!-- Additional tetrahedron (green) -->
+                                <div style="position: absolute; width: 0; height: 0; left: 75px; top: 55px; transform: translateZ(0) rotateZ(180deg); filter: drop-shadow(0 0 15px rgba(0, 255, 0, 0.6));">
+                                    <svg width="100" height="100" viewBox="0 0 100 100" style="position: absolute; top: -50px; left: -50px;">
+                                        <polygon points="50,87 0,0 100,0" fill="#33CC33" stroke="#000000" stroke-width="3" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                         <style>
-                            @keyframes rotatePrism {
-                                0% { transform: rotateY(0deg) rotateX(20deg); }
-                                100% { transform: rotateY(360deg) rotateX(20deg); }
+                            @keyframes rotateStarTetrahedron {
+                                0% { transform: rotateY(0deg); }
+                                100% { transform: rotateY(360deg); }
                             }
                         </style>
                     </div>
@@ -368,28 +411,31 @@
                     <p>Import all your extensions, themes, and keybindings in one click.</p>
                     <div class="card-image">
                         <div class="animated-icon" style="position: relative; width: 150px; height: 150px; perspective: 800px;">
-                            <div class="rotating-cube" style="width: 100%; height: 100%; transform-style: preserve-3d; animation: rotateCube 8s infinite linear;">
+                            <div style="width: 100%; height: 100%; transform-style: preserve-3d; animation: rotateCube 12s infinite linear;">
+                                <!-- Professional 3D cube with 6 different colors and black borders -->
                                 <!-- Front face (blue) -->
-                                <div style="position: absolute; width: 80px; height: 80px; background: #00BFFF; left: 35px; top: 35px; transform: translateZ(40px); box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);"></div>
+                                <div style="position: absolute; width: 80px; height: 80px; background: #00CCFF; left: 35px; top: 35px; transform: translateZ(40px); box-shadow: 0 0 20px #00CCFF; border: 3px solid #000000;"></div>
                                 <!-- Back face (green) -->
-                                <div style="position: absolute; width: 80px; height: 80px; background: #00FF00; left: 35px; top: 35px; transform: translateZ(-40px) rotateY(180deg); box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);"></div>
-                                <!-- Right face (pink) -->
-                                <div style="position: absolute; width: 80px; height: 80px; background: #FF00FF; left: 35px; top: 35px; transform: rotateY(90deg) translateZ(40px); box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);"></div>
-                                <!-- Left face (yellow) -->
-                                <div style="position: absolute; width: 80px; height: 80px; background: #FFCC00; left: 35px; top: 35px; transform: rotateY(-90deg) translateZ(40px); box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);"></div>
-                                <!-- Top face (cyan) -->
-                                <div style="position: absolute; width: 80px; height: 80px; background: #00FFFF; left: 35px; top: 35px; transform: rotateX(90deg) translateZ(40px); box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);"></div>
-                                <!-- Bottom face (magenta) -->
-                                <div style="position: absolute; width: 80px; height: 80px; background: #FF00CC; left: 35px; top: 35px; transform: rotateX(-90deg) translateZ(40px); box-shadow: 0 0 15px rgba(255, 0, 204, 0.7);"></div>
+                                <div style="position: absolute; width: 80px; height: 80px; background: #33CC33; left: 35px; top: 35px; transform: translateZ(-40px) rotateY(180deg); box-shadow: 0 0 20px #33CC33; border: 3px solid #000000;"></div>
+                                <!-- Right face (yellow) -->
+                                <div style="position: absolute; width: 80px; height: 80px; background: #FFCC00; left: 35px; top: 35px; transform: rotateY(90deg) translateZ(40px); box-shadow: 0 0 20px #FFCC00; border: 3px solid #000000;"></div>
+                                <!-- Left face (magenta) -->
+                                <div style="position: absolute; width: 80px; height: 80px; background: #FF33CC; left: 35px; top: 35px; transform: rotateY(-90deg) translateZ(40px); box-shadow: 0 0 20px #FF33CC; border: 3px solid #000000;"></div>
+                                <!-- Top face (orange) -->
+                                <div style="position: absolute; width: 80px; height: 80px; background: #FF6600; left: 35px; top: 35px; transform: rotateX(90deg) translateZ(40px); box-shadow: 0 0 20px #FF6600; border: 3px solid #000000;"></div>
+                                <!-- Bottom face (purple) -->
+                                <div style="position: absolute; width: 80px; height: 80px; background: #9900FF; left: 35px; top: 35px; transform: rotateX(-90deg) translateZ(40px); box-shadow: 0 0 20px #9900FF; border: 3px solid #000000;"></div>
                             </div>
                         </div>
                         <style>
                             @keyframes rotateCube {
                                 0% { transform: rotateY(0deg) rotateX(0deg); }
-                                25% { transform: rotateY(90deg) rotateX(90deg); }
-                                50% { transform: rotateY(180deg) rotateX(180deg); }
-                                75% { transform: rotateY(270deg) rotateX(270deg); }
-                                100% { transform: rotateY(360deg) rotateX(360deg); }
+                                16.6% { transform: rotateY(90deg) rotateX(0deg); }
+                                33.3% { transform: rotateY(180deg) rotateX(0deg); }
+                                50% { transform: rotateY(270deg) rotateX(0deg); }
+                                66.6% { transform: rotateX(90deg) rotateY(0deg); }
+                                83.3% { transform: rotateX(-90deg) rotateY(0deg); }
+                                100% { transform: rotateY(0deg) rotateX(0deg); }
                             }
                         </style>
                     </div>
@@ -399,55 +445,43 @@
                     <p>If you enable Privacy Mode, your code is never stored remotely. Codely is SOC 2 certified.</p>
                     <div class="card-image">
                         <div class="animated-icon" style="position: relative; width: 150px; height: 150px; perspective: 800px;">
-                            <div class="pulsing-circle" style="width: 100%; height: 100%; transform-style: preserve-3d;">
-                                <div class="outer-ring" style="position: absolute; width: 100px; height: 100px; border-radius: 50%; border: 2px solid #555; background: transparent; left: 25px; top: 25px; animation: pulse-ring 2s infinite;"></div>
-                                <div class="inner-circle" style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: url(#circle-gradient); left: 35px; top: 35px; display: flex; justify-content: center; align-items: center; animation: pulse-circle 3s infinite;">
-                                    <span style="color: white; font-size: 16px; font-weight: bold; position: relative; z-index: 2;">SOC2</span>
+                            <div style="width: 100%; height: 100%; transform-style: preserve-3d; animation: pulse-badge 3s infinite ease-in-out;">
+                                <!-- Outer ring with glow and black border -->
+                                <div style="position: absolute; width: 90px; height: 90px; border-radius: 50%; border: 3px solid #000000; background: transparent; left: 30px; top: 30px; box-shadow: 0 0 15px #CC00FF; animation: rotate-ring 8s linear infinite;">
+                                    <!-- Additional decorative ring -->
+                                    <div style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #CC00FF; box-shadow: inset 0 0 10px #CC00FF;"></div>
                                 </div>
-                                <svg width="0" height="0">
-                                    <defs>
-                                        <radialGradient id="circle-gradient" cx="50%" cy="50%" r="50%" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0%" stop-color="#ff00ff" />
-                                            <stop offset="25%" stop-color="#ff00ff" />
-                                            <stop offset="50%" stop-color="#ffff00" />
-                                            <stop offset="75%" stop-color="#00ffff" />
-                                            <stop offset="100%" stop-color="#ff00ff" />
-                                        </radialGradient>
-                                    </defs>
-                                </svg>
+                                
+                                <!-- Middle ring with glow and black border -->
+                                <div style="position: absolute; width: 75px; height: 75px; border-radius: 50%; border: 3px solid #000000; background: transparent; left: 37.5px; top: 37.5px; box-shadow: 0 0 10px #CC00FF; animation: rotate-ring-reverse 5s linear infinite;">
+                                    <!-- Additional decorative ring -->
+                                    <div style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #CC00FF; box-shadow: inset 0 0 8px #CC00FF;"></div>
+                                </div>
+                                
+                                <!-- Inner circle with bright purple background, black border, and SOC2 text -->
+                                <div style="position: absolute; width: 60px; height: 60px; border-radius: 50%; background: #CC00FF; left: 45px; top: 45px; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 20px #CC00FF; border: 3px solid #000000; animation: pulse-inner 2s infinite alternate;">
+                                    <!-- SOC2 text -->
+                                    <div style="color: white; font-size: 16px; font-weight: bold; letter-spacing: 0.5px; font-family: 'Arial', sans-serif; text-shadow: 0 0 5px white;">SOC2</div>
+                                </div>
                             </div>
                         </div>
                         <style>
-                            @keyframes pulse-ring {
-                                0% { transform: scale(0.95); opacity: 0.7; }
-                                50% { transform: scale(1.05); opacity: 0.9; }
-                                100% { transform: scale(0.95); opacity: 0.7; }
+                            @keyframes rotate-ring {
+                                0% { transform: rotateZ(0deg); }
+                                100% { transform: rotateZ(360deg); }
                             }
-                            @keyframes pulse-circle {
-                                0% { transform: scale(1) rotateZ(0deg); box-shadow: 0 0 15px rgba(255, 0, 255, 0.6); }
-                                50% { transform: scale(1.1) rotateZ(180deg); box-shadow: 0 0 25px rgba(255, 0, 255, 0.8); }
-                                100% { transform: scale(1) rotateZ(360deg); box-shadow: 0 0 15px rgba(255, 0, 255, 0.6); }
+                            @keyframes rotate-ring-reverse {
+                                0% { transform: rotateZ(0deg); }
+                                100% { transform: rotateZ(-360deg); }
                             }
-                            .inner-circle {
-                                background: #111111;
-                                overflow: hidden;
+                            @keyframes pulse-badge {
+                                0% { transform: scale(1); }
+                                50% { transform: scale(1.05); }
+                                100% { transform: scale(1); }
                             }
-                            .inner-circle:before {
-                                content: '';
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                right: 0;
-                                bottom: 0;
-                                background: linear-gradient(45deg, #ff00ff, #ffff00, #00ffff, #ff00ff);
-                                background-size: 400% 400%;
-                                animation: gradient 5s ease infinite;
-                                border-radius: 50%;
-                            }
-                            @keyframes gradient {
-                                0% { background-position: 0% 50%; }
-                                50% { background-position: 100% 50%; }
-                                100% { background-position: 0% 50%; }
+                            @keyframes pulse-inner {
+                                0% { box-shadow: 0 0 15px #CC00FF; }
+                                100% { box-shadow: 0 0 30px #CC00FF; }
                             }
                         </style>
                     </div>
