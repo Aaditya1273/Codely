@@ -721,6 +721,214 @@
             </form>
         </div>
     </div>
+    
+    <!-- My Account Modal (Cursor-style) -->
+    <div id="account-modal" class="modal">
+        <div class="modal-content account-content">
+            <div class="account-header">
+                <h2>Settings</h2>
+                <p class="account-subtitle">You can manage your account, billing, and team settings here.</p>
+                <span class="close-modal">&times;</span>
+            </div>
+            
+            <div class="account-layout">
+                <div class="account-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Basic Information</h3>
+                        <ul class="sidebar-menu">
+                            <li class="active" data-tab="profile-tab">Profile</li>
+                            <li data-tab="email-tab">Email</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Account</h3>
+                        <ul class="sidebar-menu">
+                            <li data-tab="subscription-tab">Subscription</li>
+                            <li data-tab="upgrade-tab">Upgrade to Pro</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Team</h3>
+                        <ul class="sidebar-menu">
+                            <li data-tab="members-tab">Members</li>
+                            <li data-tab="billing-tab">Billing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="account-content-area">
+                    <!-- Profile Tab -->
+                    <div class="content-tab active" id="profile-tab">
+                        <div class="content-section">
+                            <h3>Profile</h3>
+                            <div class="profile-info">
+                                <div class="profile-field">
+                                    <label>Name</label>
+                                    <input type="text" value="Codely User" class="profile-input">
+                                </div>
+                                
+                                <div class="profile-field">
+                                    <label>Email</label>
+                                    <div class="email-display">
+                                        <span id="user-email">user@example.com</span>
+                                        <span class="verified-badge">Verified</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-field">
+                                    <label>Profile Picture</label>
+                                    <div class="avatar-upload">
+                                        <div class="avatar-preview">
+                                            <div class="avatar-circle">
+                                                <span class="avatar-initials">U</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn-secondary">Upload Image</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-actions">
+                                    <button class="btn-save">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h3>Usage</h3>
+                            <div class="usage-stats">
+                                <div class="usage-row">
+                                    <div class="usage-label">Usage Last 30 days</div>
+                                    <div class="usage-value">9 / 50</div>
+                                </div>
+                                
+                                <div class="usage-row">
+                                    <div class="usage-label">Free requests</div>
+                                    <div class="usage-value">9 / 500</div>
+                                </div>
+                                
+                                <div class="usage-progress">
+                                    <div class="progress-bar" style="width: 18%;"></div>
+                                </div>
+                                
+                                <div class="usage-description">
+                                    You've used 18 requests out of your 50 free requests quota.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h3>Connected Services</h3>
+                            <div class="connected-services">
+                                <div class="service-item">
+                                    <span class="service-icon github">G</span>
+                                    <span class="service-name">GitHub</span>
+                                    <span class="connection-status connected">Connected</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-icon gitlab">GL</span>
+                                    <span class="service-name">GitLab</span>
+                                    <button class="connect-button">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Email Tab -->
+                    <div class="content-tab" id="email-tab">
+                        <div class="content-section">
+                            <h3>Email Settings</h3>
+                            <div class="profile-info">
+                                <div class="profile-field">
+                                    <label>Primary Email</label>
+                                    <div class="email-display">
+                                        <span id="user-email-display">user@example.com</span>
+                                        <span class="verified-badge">Verified</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-field">
+                                    <label>Change Email</label>
+                                    <input type="email" placeholder="Enter new email address" class="profile-input">
+                                    <button class="btn-secondary mt-10">Update Email</button>
+                                </div>
+                                
+                                <div class="profile-field">
+                                    <label>Email Preferences</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" checked> Product updates
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" checked> Security alerts
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox"> Marketing emails
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Subscription Tab -->
+                    <div class="content-tab" id="subscription-tab">
+                        <div class="content-section">
+                            <h3>Current Plan</h3>
+                            <div class="plan-info">
+                                <div class="plan-header">
+                                    <div class="plan-name">Pro Plan</div>
+                                    <div class="plan-price">$10<span>/month</span></div>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li>Unlimited completions</li>
+                                        <li>500 requests per month</li>
+                                        <li>Unlimited slow requests</li>
+                                        <li>Max mode</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-actions">
+                                    <button class="btn-secondary">Manage Billing</button>
+                                    <button class="btn-outline">Cancel Subscription</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Other tabs (hidden by default) -->
+                    <div class="content-tab" id="upgrade-tab">
+                        <div class="content-section">
+                            <h3>Upgrade Your Plan</h3>
+                            <p>Choose the plan that's right for you.</p>
+                            <!-- Plan comparison would go here -->
+                        </div>
+                    </div>
+                    
+                    <div class="content-tab" id="members-tab">
+                        <div class="content-section">
+                            <h3>Team Members</h3>
+                            <p>Manage your team members and their permissions.</p>
+                            <!-- Team members list would go here -->
+                        </div>
+                    </div>
+                    
+                    <div class="content-tab" id="billing-tab">
+                        <div class="content-section">
+                            <h3>Billing History</h3>
+                            <p>View your past invoices and payment methods.</p>
+                            <!-- Billing history would go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="account-footer">
+                <button id="logout-button" class="btn-logout">Sign Out</button>
+            </div>
+        </div>
+    </div>
 
     <style>
         /* Modal Styles */
@@ -857,52 +1065,479 @@
         .form-footer a:hover {
             text-decoration: underline;
         }
+        
+        /* Cursor-style Account Modal Styles */
+        .account-content {
+            width: 900px;
+            max-width: 95%;
+            background-color: #0e0e0e;
+            border-radius: 8px;
+            border: 1px solid #222;
+            padding: 0;
+            color: #eee;
+        }
+        
+        .account-header {
+            padding: 24px 32px;
+            border-bottom: 1px solid #222;
+            position: relative;
+        }
+        
+        .account-header h2 {
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            color: white;
+        }
+        
+        .account-subtitle {
+            color: #999;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .account-header .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+        }
+        
+        .account-layout {
+            display: flex;
+            min-height: 500px;
+        }
+        
+        .account-sidebar {
+            width: 250px;
+            border-right: 1px solid #222;
+            padding: 24px 0;
+            background-color: #0e0e0e;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 24px;
+        }
+        
+        .sidebar-section h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #777;
+            margin: 0 0 8px 0;
+            padding: 0 24px;
+            letter-spacing: 0.5px;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            padding: 8px 24px;
+            cursor: pointer;
+            color: #bbb;
+            transition: all 0.2s;
+        }
+        
+        .sidebar-menu li:hover {
+            background-color: #161616;
+            color: white;
+        }
+        
+        .sidebar-menu li.active {
+            background-color: #161616;
+            color: white;
+            border-left: 2px solid #00D8FF;
+        }
+        
+        .account-content-area {
+            flex: 1;
+            padding: 24px 32px;
+            background-color: #0e0e0e;
+        }
+        
+        .content-section {
+            margin-bottom: 32px;
+        }
+        
+        .content-section h3 {
+            font-size: 16px;
+            color: white;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #222;
+        }
+        
+        .profile-field {
+            margin-bottom: 20px;
+        }
+        
+        .profile-field label {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .profile-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px 12px;
+            background-color: #161616;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .email-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .verified-badge {
+            background-color: rgba(0, 216, 255, 0.1);
+            color: #00D8FF;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .usage-stats {
+            background-color: #161616;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .usage-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .usage-label {
+            color: #999;
+        }
+        
+        .usage-value {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .usage-progress {
+            height: 6px;
+            background-color: #222;
+            border-radius: 3px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00D8FF, #7CFF67);
+            border-radius: 3px;
+        }
+        
+        .usage-description {
+            font-size: 13px;
+            color: #999;
+        }
+        
+        .connected-services {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background-color: #161616;
+            border-radius: 6px;
+            border: 1px solid #222;
+        }
+        
+        .service-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .service-icon.github {
+            background-color: #333;
+            color: white;
+        }
+        
+        .service-icon.gitlab {
+            background-color: #FC6D26;
+            color: white;
+        }
+        
+        .service-name {
+            flex: 1;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .connection-status {
+            font-size: 12px;
+            color: #7CFF67;
+        }
+        
+        .connect-button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        
+        .connect-button:hover {
+            background-color: #333;
+        }
+        
+        .account-footer {
+            padding: 16px 32px;
+            border-top: 1px solid #222;
+            text-align: right;
+        }
+        
+        .btn-logout {
+            padding: 8px 16px;
+            background-color: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .btn-logout:hover {
+            background-color: rgba(255, 77, 77, 0.1);
+        }
+        
+        .btn-logout {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-logout:hover {
+            background-color: rgba(255, 77, 77, 0.1);
+        }
+        
+        /* Style for the My Account button when logged in */
+        .btn-signin.logged-in {
+            color: white;
+            background: linear-gradient(90deg, #00D8FF, #7CFF67);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0, 216, 255, 0.3);
+        }
+        
+        .btn-signin.logged-in:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 216, 255, 0.4);
+        }
     </style>
 
     <script>
-        // Sign-in Modal Functionality
+        // Account Management System
         document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('signin-modal');
-            const signinButton = document.getElementById('signin-button');
-            const closeModal = document.querySelector('.close-modal');
-            const signinForm = document.getElementById('signin-form');
-
-            // Open modal when sign in button is clicked
-            signinButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-            });
-
-            // Close modal when X is clicked
-            closeModal.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            });
-
-            // Close modal when clicking outside of it
-            window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
-                }
-            });
-
-            // Handle form submission
-            signinForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                
-                // Here you would typically send the credentials to your backend
-                console.log('Sign in attempt with:', email);
-                
-                // For demo purposes, show success message and close modal
-                alert('Sign in successful!');
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            });
+            // Initialize account system
+            initAccountSystem();
         });
+        
+        function initAccountSystem() {
+            // Elements
+            const signinButton = document.getElementById('signin-button');
+            const signinModal = document.getElementById('signin-modal');
+            const accountModal = document.getElementById('account-modal');
+            const signinForm = document.getElementById('signin-form');
+            const logoutButton = document.getElementById('logout-button');
+            
+            // For testing - uncomment to auto-login
+            setLoginState(true, 'user@codely.com');
+            
+            // Check if user is logged in
+            const isLoggedIn = getLoginState().isLoggedIn;
+            const userEmail = getLoginState().email;
+            
+            // Update UI based on login state
+            updateUIForLoginState(isLoggedIn, userEmail);
+            
+            // Initialize account tabs
+            initAccountTabs();
+            
+            // Add event listeners
+            addEventListeners();
+            
+            // Initialize account tabs functionality
+            function initAccountTabs() {
+                const tabLinks = document.querySelectorAll('.sidebar-menu li');
+                const contentTabs = document.querySelectorAll('.content-tab');
+                
+                // Add click event to all tab links
+                tabLinks.forEach(tabLink => {
+                    tabLink.addEventListener('click', function() {
+                        // Get the tab to show
+                        const tabId = this.getAttribute('data-tab');
+                        
+                        // Remove active class from all tabs and links
+                        tabLinks.forEach(link => link.classList.remove('active'));
+                        contentTabs.forEach(tab => tab.classList.remove('active'));
+                        
+                        // Add active class to current tab and link
+                        this.classList.add('active');
+                        document.getElementById(tabId)?.classList.add('active');
+                    });
+                });
+            }
+            
+            function addEventListeners() {
+                // Sign in / My Account button click
+                if (signinButton) {
+                    signinButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const currentState = getLoginState();
+                        
+                        if (currentState.isLoggedIn) {
+                            openModal(accountModal);
+                        } else {
+                            openModal(signinModal);
+                        }
+                    });
+                }
+                
+                // Close buttons for modals
+                document.querySelectorAll('.close-modal').forEach(button => {
+                    button.addEventListener('click', function() {
+                        closeAllModals();
+                    });
+                });
+                
+                // Close modal when clicking outside
+                window.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('modal')) {
+                        closeAllModals();
+                    }
+                });
+                
+                // Handle sign in form submission
+                if (signinForm) {
+                    signinForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const email = document.getElementById('email').value;
+                        const password = document.getElementById('password').value;
+                        
+                        // Simulate login success
+                        handleSuccessfulLogin(email);
+                    });
+                }
+                
+                // Handle logout
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        handleLogout();
+                    });
+                }
+            }
+            
+            function handleSuccessfulLogin(email) {
+                setLoginState(true, email);
+                updateUIForLoginState(true, email);
+                closeAllModals();
+                alert('Sign in successful!');
+            }
+            
+            function handleLogout() {
+                setLoginState(false, '');
+                updateUIForLoginState(false, '');
+                closeAllModals();
+                alert('You have been logged out.');
+            }
+            
+            function openModal(modal) {
+                if (!modal) return;
+                
+                // Close any open modals first
+                closeAllModals();
+                
+                // Open the requested modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeAllModals() {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Helper functions for login state management
+        function getLoginState() {
+            return {
+                isLoggedIn: localStorage.getItem('isLoggedIn') === 'true',
+                email: localStorage.getItem('userEmail') || ''
+            };
+        }
+        
+        function setLoginState(isLoggedIn, email) {
+            if (isLoggedIn) {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userEmail', email);
+            } else {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userEmail');
+            }
+        }
+        
+        function updateUIForLoginState(isLoggedIn, email) {
+            const signinButton = document.getElementById('signin-button');
+            if (!signinButton) return;
+            
+            if (isLoggedIn) {
+                // Update button
+                signinButton.textContent = 'My Account';
+                signinButton.classList.add('logged-in');
+                
+                // Update account info
+                const userEmailElement = document.getElementById('user-email');
+                if (userEmailElement) {
+                    userEmailElement.textContent = email;
+                }
+                
+                // Update avatar
+                const avatarInitials = document.querySelector('.avatar-initials');
+                if (avatarInitials && email) {
+                    avatarInitials.textContent = email.charAt(0).toUpperCase();
+                }
+            } else {
+                signinButton.textContent = 'Sign in';
+                signinButton.classList.remove('logged-in');
+            }
+        }
     </script>
 </body>
 </html>
