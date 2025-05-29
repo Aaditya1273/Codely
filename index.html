@@ -81,7 +81,7 @@
                     <a href="#careers">Careers</a>
                 </div>
                 <div class="nav-buttons">
-                    <a href="#signin" class="btn-signin">Sign in</a>
+                    <a href="#" class="btn-signin" id="signin-button">Sign in</a>
                     <a href="#download" class="btn-download">Download</a>
                 </div>
             </nav>
@@ -92,7 +92,7 @@
         <!-- Aurora effect container -->
         <div class="aurora-container"></div>
         <div class="container">
-            <h1 id="animated-title" style="font-size:3.5rem; font-weight:800; letter-spacing:-0.5px; text-shadow:0 2px 20px rgba(255,255,255,0.1); display:flex; flex-wrap:wrap; justify-content:center;">The Ultimate AI Code Editor</h1>
+            <h1 id="animated-title" style="font-size:4.5rem; font-weight:800; letter-spacing:-0.5px; text-shadow:0 2px 20px rgba(255,255,255,0.1); display:flex; flex-wrap:wrap; justify-content:center;">The Ultimate AI Code Editor</h1>
             <p class="subtitle">Built to maximize your efficiency, Codely makes coding effortless with AI.</p>
             <div class="download-buttons">
                 <a href="#download-win" class="download-btn">Download for Windows</a>
@@ -148,12 +148,21 @@
                     background: rgba(30, 30, 30, 0.6);
                     border-radius: 12px;
                     padding: 25px;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    transition: all 0.3s ease;
                     border: 1px solid rgba(255, 255, 255, 0.1);
+                    position: relative;
                 }
                 .feature-card:hover {
                     transform: translateY(-5px);
-                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 0 0 2px #FFD700;
+                    animation: goldBorder 3s infinite linear;
+                }
+                @keyframes goldBorder {
+                    0% { box-shadow: 0 0 0 2px #FFD700; }
+                    25% { box-shadow: 0 0 0 2px #FFA500; }
+                    50% { box-shadow: 0 0 0 2px #FF8C00; }
+                    75% { box-shadow: 0 0 0 2px #FFA500; }
+                    100% { box-shadow: 0 0 0 2px #FFD700; }
                 }
                 .feature-card h3 {
                     font-size: 20px;
@@ -302,7 +311,7 @@
                     background: rgba(0, 0, 0, 0.7);
                     border-radius: 12px;
                     padding: 25px;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    transition: all 0.3s ease;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     overflow: hidden;
                     height: 350px;
@@ -314,24 +323,15 @@
                 }
                 .card:hover {
                     transform: translateY(-5px);
+                    box-shadow: 0 0 0 2px #FFD700;
+                    animation: goldBorder 3s infinite linear;
                 }
-                .card::before {
-                    content: '';
-                    position: absolute;
-                    top: -2px;
-                    left: -2px;
-                    right: -2px;
-                    bottom: -2px;
-                    background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #FFD700);
-                    background-size: 400% 400%;
-                    z-index: -1;
-                    border-radius: 12px;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                }
-                .card:hover::before {
-                    opacity: 1;
-                    animation: goldShine 3s ease-in-out infinite;
+                @keyframes goldBorder {
+                    0% { box-shadow: 0 0 0 2px #FFD700; }
+                    25% { box-shadow: 0 0 0 2px #FFA500; }
+                    50% { box-shadow: 0 0 0 2px #FF8C00; }
+                    75% { box-shadow: 0 0 0 2px #FFA500; }
+                    100% { box-shadow: 0 0 0 2px #FFD700; }
                 }
                 @keyframes goldShine {
                     0% { background-position: 0% 50%; }
@@ -697,5 +697,212 @@
     <script src="text-animation.js"></script>
 <script src="aurora.js"></script>
 <script src="fluid-animation.js"></script>
+    <!-- Sign-in Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Sign In</button>
+                    <a href="#forgot-password" class="forgot-password">Forgot password?</a>
+                </div>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#signup">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #111;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: white;
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00D8FF, #7CFF67);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222;
+            color: white;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #00D8FF;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 216, 255, 0.2);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .form-actions .btn-primary {
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #00D8FF, #7CFF67);
+            color: #000;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .form-actions .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 216, 255, 0.3);
+        }
+
+        .forgot-password {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .forgot-password:hover {
+            color: #00D8FF;
+            text-decoration: underline;
+        }
+
+        .form-footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .form-footer a {
+            color: #00D8FF;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        // Sign-in Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('signin-modal');
+            const signinButton = document.getElementById('signin-button');
+            const closeModal = document.querySelector('.close-modal');
+            const signinForm = document.getElementById('signin-form');
+
+            // Open modal when sign in button is clicked
+            signinButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            });
+
+            // Close modal when X is clicked
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                }
+            });
+
+            // Handle form submission
+            signinForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Here you would typically send the credentials to your backend
+                console.log('Sign in attempt with:', email);
+                
+                // For demo purposes, show success message and close modal
+                alert('Sign in successful!');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+        });
+    </script>
 </body>
 </html>
