@@ -980,7 +980,7 @@
             color: white;
             font-size: 1.8rem;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, #00D8FF, #7CFF67);
+            background: linear-gradient(90deg, #00D8FF, #7CFF67,#fb0aff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1420,7 +1420,8 @@
                         const currentState = getLoginState();
                         
                         if (currentState.isLoggedIn) {
-                            openModal(accountModal);
+                            // Redirect to account page instead of opening modal
+                            window.location.href = 'account.html';
                         } else {
                             openModal(signinModal);
                         }
@@ -1515,20 +1516,19 @@
         
         function updateUIForLoginState(isLoggedIn, email) {
             const signinButton = document.getElementById('signin-button');
-            if (!signinButton) return;
-            
             if (isLoggedIn) {
-                // Update button
+                // Update button to link to account page
                 signinButton.textContent = 'My Account';
                 signinButton.classList.add('logged-in');
+                signinButton.setAttribute('href', 'account.html');
                 
-                // Update account info
+                // Update account info if modal elements exist
                 const userEmailElement = document.getElementById('user-email');
                 if (userEmailElement) {
                     userEmailElement.textContent = email;
                 }
                 
-                // Update avatar
+                // Update avatar if it exists
                 const avatarInitials = document.querySelector('.avatar-initials');
                 if (avatarInitials && email) {
                     avatarInitials.textContent = email.charAt(0).toUpperCase();
@@ -1536,6 +1536,7 @@
             } else {
                 signinButton.textContent = 'Sign in';
                 signinButton.classList.remove('logged-in');
+                signinButton.setAttribute('href', '#');
             }
         }
     </script>
